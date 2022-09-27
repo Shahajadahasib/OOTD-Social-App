@@ -1,16 +1,14 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/material.dart';
-import 'package:ootd/signup.dart';
+import 'package:ootd/create_post/user_password.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+class SignIn extends StatefulWidget {
+  const SignIn({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<SignIn> createState() => _SignUpState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _SignUpState extends State<SignIn> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -33,7 +31,7 @@ class _HomePageState extends State<HomePage> {
                 top: 50,
                 child: Container(
                   height: size.height * 0.84,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                       image: DecorationImage(
                           fit: BoxFit.fill,
                           image: AssetImage('assets/images/hoverimage.png'))),
@@ -49,7 +47,7 @@ class _HomePageState extends State<HomePage> {
                               SizedBox(
                                 height: size.height / 8,
                               ),
-                              Text(
+                              const Text(
                                 "Hey there !",
                                 style: TextStyle(
                                   color: Color(
@@ -59,28 +57,19 @@ class _HomePageState extends State<HomePage> {
                                   fontWeight: FontWeight.w300,
                                 ),
                               ),
-                              Text(
-                                "Let's get you set",
-                                style: TextStyle(
-                                  color: Color(
-                                    0xffFFFFFF,
-                                  ),
-                                  fontSize: 30,
-                                  // height: 1,
-                                  fontWeight: FontWeight.w300,
-                                ),
-                              ),
                               SizedBox(
-                                height: size.height / 8,
+                                height: size.height / 7,
                               ),
-                              TextField(
+                              const TextField(
                                 textAlign: TextAlign.center,
                                 decoration: InputDecoration(
                                   focusedBorder: UnderlineInputBorder(
                                       borderSide: BorderSide(
                                           width: 2, color: Color(0xff8E8B8B))),
-                                  hintText: "Email",
+                                  hintText: "Email or Username",
                                   hintStyle: TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w300,
                                     color: Color(0xff6A6767),
                                   ),
                                 ),
@@ -93,12 +82,43 @@ class _HomePageState extends State<HomePage> {
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) => const SignUp()),
+                                      builder: (context) => UserPassword(),
+                                    ),
                                   );
                                 },
                                 child: Image(
                                     image: AssetImage(
                                         "assets/images/entericon.png")),
+                              ),
+                              SizedBox(
+                                height: size.height / 5,
+                              ),
+                              Container(
+                                // color: Colors.red,
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    const Text(
+                                      "Don't have an account?",
+                                      style: TextStyle(fontSize: 18),
+                                    ),
+                                    TextButton(
+                                      onPressed: () {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  const SignIn()),
+                                        );
+                                      },
+                                      child: const Text(
+                                        "Sign Up",
+                                        style: TextStyle(
+                                            fontSize: 18, color: Colors.blue),
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               )
                             ],
                           ),

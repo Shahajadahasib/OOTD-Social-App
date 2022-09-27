@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:ootd/create_account/password.dart';
 
-class SignUp extends StatefulWidget {
-  const SignUp({super.key});
+class CreateAcUsername extends StatefulWidget {
+  const CreateAcUsername({super.key});
 
   @override
-  State<SignUp> createState() => _SignUpState();
+  State<CreateAcUsername> createState() => _SignUpState();
 }
 
-class _SignUpState extends State<SignUp> {
+bool isChecked = false;
+
+class _SignUpState extends State<CreateAcUsername> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -54,6 +57,8 @@ class _SignUpState extends State<SignUp> {
                                           width: 2, color: Color(0xff8E8B8B))),
                                   hintText: "Username",
                                   hintStyle: TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w300,
                                     color: Color(0xff6A6767),
                                   ),
                                 ),
@@ -62,11 +67,21 @@ class _SignUpState extends State<SignUp> {
                                 height: size.height / 10,
                               ),
                               InkWell(
-                                onTap: () {},
-                                child: Image(
+                                onTap: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            const CreateAcPassWord()),
+                                  );
+                                },
+                                child: const Image(
                                     image: AssetImage(
                                         "assets/images/entericon.png")),
-                              )
+                              ),
+                              SizedBox(
+                                height: size.height / 20,
+                              ),
                             ],
                           ),
                         ),
@@ -80,7 +95,7 @@ class _SignUpState extends State<SignUp> {
                 right: size.width * 0.40,
                 child: Image(
                   width: size.width / 4.5,
-                  image: AssetImage('assets/images/logo.png'),
+                  image: const AssetImage('assets/images/logo.png'),
                 ),
               ),
             ],
