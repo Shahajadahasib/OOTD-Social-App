@@ -8,6 +8,7 @@ import 'package:ootd/create_post/log_password.dart';
 import 'package:ootd/create_post/profilepic.dart';
 import 'package:ootd/create_post/username.dart';
 import 'package:ootd/create_post/varification.dart';
+import 'package:ootd/users/spotlight.dart';
 
 import 'create_post/user_with_email.dart';
 
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: ChooseVideo(),
+      home: SpotLight(),
     );
   }
 }
