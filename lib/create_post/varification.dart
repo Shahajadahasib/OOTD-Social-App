@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+
+import 'bio_record.dart';
 
 class Varification extends StatefulWidget {
   const Varification({super.key});
@@ -47,13 +50,14 @@ class _MyWidgetState extends State<Varification> {
                               Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  const Center(
-                                    child: ImageIcon(
-                                      size: 100,
-                                      // color: Color(0xff05A841),
-                                      AssetImage(
-                                        "assets/images/output-onlinepngtools.png",
-                                      ),
+                                  SizedBox(
+                                    height: size.height / 6,
+                                  ),
+                                  Center(
+                                    child: SvgPicture.asset(
+                                      "assets/images/Iconfeather-check-circle.svg",
+                                      color: const Color(0xff09FF63),
+                                      width: size.width / 5.5,
                                     ),
                                   ),
                                   SizedBox(
@@ -63,17 +67,21 @@ class _MyWidgetState extends State<Varification> {
                                     "Varification Successful",
                                     style: TextStyle(
                                         fontSize: 28,
-                                        color: Color(
-                                            0xffFF9EB5)), //color linier gradient #FF9EB5 100% #FFBD80 100%
+                                        color: Colors
+                                            .white), //color linier gradient #FF9EB5 100% #FFBD80 100%
                                   ),
                                   const SizedBox(
-                                    height: 10,
+                                    height: 25,
                                   ),
                                   Container(
+                                    alignment: Alignment.center,
                                     width: size.width / 1.3,
                                     child: const Text(
-                                      "Yessir yessir Your account has been fully verified let’s go customize your profile.",
-                                      style: TextStyle(fontSize: 15),
+                                      "Glad to have you back!",
+                                      style: TextStyle(
+                                        fontSize: 15,
+                                        color: Color(0xff4D4D4B),
+                                      ),
                                     ),
                                   ),
                                   SizedBox(
@@ -84,13 +92,13 @@ class _MyWidgetState extends State<Varification> {
                                       Navigator.push(
                                         context,
                                         MaterialPageRoute(
-                                          builder: (context) => Container(),
+                                          builder: (context) => BioRecord(),
                                         ),
                                       );
                                     },
-                                    child: Image(
+                                    child: const Image(
                                         image: AssetImage(
-                                            "assets/images/entericon.png")),
+                                            "assets/images/784.png")),
                                   ),
                                 ],
                               ),
@@ -105,9 +113,8 @@ class _MyWidgetState extends State<Varification> {
               Positioned(
                 top: 18,
                 right: size.width * 0.40,
-                child: Image(
-                  width: size.width / 4.5,
-                  image: AssetImage('assets/images/logo.png'),
+                child: SvgPicture.asset(
+                  'assets/images/logo.svg',
                 ),
               ),
             ],

@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:ootd/create_post/user_password.dart';
+import 'package:ootd/create_post/user_with_email.dart';
 
-class SignIn extends StatefulWidget {
-  const SignIn({super.key});
+import 'user_password.dart';
+
+class LogUsername extends StatefulWidget {
+  const LogUsername({super.key});
 
   @override
-  State<SignIn> createState() => _SignUpState();
+  State<LogUsername> createState() => _LogUsernameState();
 }
 
-class _SignUpState extends State<SignIn> {
+class _LogUsernameState extends State<LogUsername> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -48,14 +50,11 @@ class _SignUpState extends State<SignIn> {
                               SizedBox(
                                 height: size.height / 8,
                               ),
-                              const Text(
-                                "Hey there !",
-                                style: TextStyle(
-                                  color: Color(
-                                    0xffFFFFFF,
-                                  ),
-                                  fontSize: 21,
-                                  fontWeight: FontWeight.w300,
+                              Container(
+                                height: 60,
+                                child: const Image(
+                                  image:
+                                      AssetImage("assets/images/Profile.png"),
                                 ),
                               ),
                               SizedBox(
@@ -67,7 +66,7 @@ class _SignUpState extends State<SignIn> {
                                   focusedBorder: UnderlineInputBorder(
                                       borderSide: BorderSide(
                                           width: 2, color: Color(0xff8E8B8B))),
-                                  hintText: "Email or Username",
+                                  hintText: "Username",
                                   hintStyle: TextStyle(
                                     fontSize: 16,
                                     fontWeight: FontWeight.w300,
@@ -88,10 +87,12 @@ class _SignUpState extends State<SignIn> {
                                   );
                                 },
                                 child: Image(
-                                    image: AssetImage("assets/images/784.png")),
+                                  height: size.height / 18,
+                                  image: AssetImage("assets/images/782.png"),
+                                ),
                               ),
                               SizedBox(
-                                height: size.height / 5,
+                                height: size.height / 5.5,
                               ),
                               Container(
                                 // color: Colors.red,

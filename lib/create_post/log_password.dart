@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:ootd/create_post/varification.dart';
 
-class UserPassword extends StatefulWidget {
-  const UserPassword({super.key});
+class LogPassword extends StatefulWidget {
+  const LogPassword({super.key});
 
   @override
-  State<UserPassword> createState() => _MyWidgetState();
+  State<LogPassword> createState() => _MyWidgetState();
 }
 
 bool isChecked = false;
 
-class _MyWidgetState extends State<UserPassword> {
+class _MyWidgetState extends State<LogPassword> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -127,7 +127,7 @@ class _MyWidgetState extends State<UserPassword> {
                                 ],
                               ),
                               SizedBox(
-                                height: size.height / 10,
+                                height: size.height / 12,
                               ),
                               InkWell(
                                 onTap: () {
@@ -139,8 +139,10 @@ class _MyWidgetState extends State<UserPassword> {
                                     ),
                                   );
                                 },
-                                child: const Image(
-                                    image: AssetImage("assets/images/784.png")),
+                                child: Image(
+                                    height: size.height / 20,
+                                    image: const AssetImage(
+                                        "assets/images/782.png")),
                               )
                             ],
                           ),
