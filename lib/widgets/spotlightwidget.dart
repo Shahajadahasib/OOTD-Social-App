@@ -9,7 +9,8 @@ class SpotLightWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Container(
-      height: size.height / 1.6,
+      // color: Colors.red,
+      height: size.height / 2,
       width: size.width - 10,
       margin: EdgeInsets.symmetric(horizontal: 5),
       child: Stack(

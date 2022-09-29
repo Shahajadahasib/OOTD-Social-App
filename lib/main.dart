@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ootd/create_account/email.dart';
 import 'package:ootd/create_post/bio_record.dart';
 import 'package:ootd/create_post/choose_video.dart';
 import 'package:ootd/create_post/email_poup.dart';

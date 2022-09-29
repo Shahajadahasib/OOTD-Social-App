@@ -31,7 +31,7 @@ class _HomePageState extends State<CreateAcEmail> {
                 top: 50,
                 child: Container(
                   height: size.height * 0.84,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                       image: DecorationImage(
                           fit: BoxFit.fill,
                           image: AssetImage('assets/images/hoverimage.png'))),
@@ -47,7 +47,7 @@ class _HomePageState extends State<CreateAcEmail> {
                               SizedBox(
                                 height: size.height / 8,
                               ),
-                              Text(
+                              const Text(
                                 "Hey there !",
                                 style: TextStyle(
                                   color: Color(
@@ -57,7 +57,7 @@ class _HomePageState extends State<CreateAcEmail> {
                                   fontWeight: FontWeight.w300,
                                 ),
                               ),
-                              Text(
+                              const Text(
                                 "Let's get you set",
                                 style: TextStyle(
                                   color: Color(
@@ -71,7 +71,7 @@ class _HomePageState extends State<CreateAcEmail> {
                               SizedBox(
                                 height: size.height / 8,
                               ),
-                              TextField(
+                              const TextField(
                                 textAlign: TextAlign.center,
                                 decoration: InputDecoration(
                                   focusedBorder: UnderlineInputBorder(
@@ -115,7 +115,7 @@ class _HomePageState extends State<CreateAcEmail> {
                 right: size.width * 0.40,
                 child: Image(
                   width: size.width / 4.5,
-                  image: AssetImage('assets/images/logo.png'),
+                  image: const AssetImage('assets/images/logo.png'),
                 ),
               ),
             ],
