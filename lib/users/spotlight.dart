@@ -124,7 +124,7 @@ class _SpotLightState extends State<SpotLight> {
                 child: Column(
                   children: [
                     Container(
-                      height: size.height / 5,
+                      height: size.height / 5.5,
                       child: SfRadialGauge(
                         axes: <RadialAxis>[
                           RadialAxis(
@@ -200,10 +200,125 @@ class _SpotLightState extends State<SpotLight> {
                             ),
                           ],
                         ),
-                        const Image(
-                          height: 50,
-                          image: AssetImage(
-                            "assets/images/person.png",
+                        InkWell(
+                          onTap: () {
+                            showModalBottomSheet(
+                              backgroundColor: Colors.transparent,
+                              shape: const RoundedRectangleBorder(
+                                borderRadius: BorderRadius.only(
+                                    topLeft: Radius.circular(15.0),
+                                    topRight: Radius.circular(15.0)),
+                              ),
+                              context: context,
+                              builder: (BuildContext context) {
+                                return Container(
+                                  margin: const EdgeInsets.symmetric(
+                                      horizontal: 15, vertical: 20),
+                                  decoration: BoxDecoration(
+                                    image: const DecorationImage(
+                                      fit: BoxFit.cover,
+                                      image:
+                                          AssetImage("assets/images/card.png"),
+                                    ),
+                                    borderRadius: BorderRadius.circular(
+                                        10), // radius of 10
+                                    // green as background color
+                                  ),
+                                  height: size.height / 3.5,
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      const SizedBox(
+                                        height: 20,
+                                      ),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceAround,
+                                        children: [
+                                          Container(
+                                            alignment: Alignment.center,
+                                            height: size.height / 25,
+                                            width: size.width / 3,
+                                            decoration: BoxDecoration(
+                                                borderRadius:
+                                                    BorderRadius.circular(15),
+                                                color: Color.fromARGB(
+                                                    255, 193, 213, 222)),
+                                            child: const Text(
+                                              textAlign: TextAlign.center,
+                                              'VISIT PROFILE',
+                                              style: TextStyle(
+                                                fontSize: 13,
+                                                fontWeight: FontWeight.w700,
+                                                color: Color(0xffFFFFFF),
+                                              ),
+                                            ),
+                                          ),
+                                          const Image(
+                                            height: 40,
+                                            image: AssetImage(
+                                              "assets/images/784.png",
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                      const SizedBox(
+                                        height: 10,
+                                      ),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Image(
+                                            width: size.width / 4,
+                                            image: const AssetImage(
+                                              "assets/images/Profile.png",
+                                            ),
+                                          ),
+                                          const SizedBox(
+                                            width: 15,
+                                          ),
+                                          Row(
+                                            children: const [
+                                              Icon(
+                                                Icons.play_arrow_rounded,
+                                                size: 36,
+                                              ),
+                                              SizedBox(
+                                                width: 10,
+                                              ),
+                                              Icon(
+                                                Icons.graphic_eq,
+                                              ),
+                                              Icon(
+                                                Icons.graphic_eq,
+                                              ),
+                                            ],
+                                          ),
+                                        ],
+                                      ),
+                                      SizedBox(
+                                        height: 10,
+                                      ),
+                                      const Text(
+                                        "MARIA SALEENAY",
+                                        style: TextStyle(
+                                            fontSize: 34,
+                                            fontWeight: FontWeight.w700,
+                                            color: Colors.white),
+                                      )
+                                    ],
+                                  ),
+                                );
+                              },
+                            );
+                          },
+                          child: const Image(
+                            height: 50,
+                            image: AssetImage(
+                              "assets/images/person.png",
+                            ),
                           ),
                         ),
                       ],
@@ -217,4 +332,24 @@ class _SpotLightState extends State<SpotLight> {
       ),
     );
   }
+
+//   _bottomSheet(context) {
+//     final size = MediaQuery.of(context).size;
+//     showModalBottomSheet(
+//       context: context,
+//       builder: (BuildContext context) {
+//         return Container(
+//           decoration: BoxDecoration(
+//               borderRadius: BorderRadius.circular(10), // radius of 10
+//               color: Colors.green // green as background color
+//               ),
+//           height: size.height / 3.5,
+//           child: Column(
+//             crossAxisAlignment: CrossAxisAlignment.center,
+//             children: [Text('data')],
+//           ),
+//         );
+//       },
+//     );
+//   }
 }

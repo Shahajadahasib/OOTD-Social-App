@@ -67,9 +67,11 @@ class _MyWidgetState extends State<EmailPopup> {
                                   );
                                 },
                                 child: Image(
-                                    height: size.height / 20,
-                                    image: const AssetImage(
-                                        "assets/images/782.png")),
+                                  height: size.height / 20,
+                                  image: const AssetImage(
+                                    "assets/images/782.png",
+                                  ),
+                                ),
                               )
                             ],
                           ),

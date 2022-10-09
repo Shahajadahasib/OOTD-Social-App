@@ -10,7 +10,7 @@ class SpotLightWidget extends StatelessWidget {
     final size = MediaQuery.of(context).size;
     return Container(
       // color: Colors.red,
-      height: size.height / 2,
+      height: size.height / 1.7,
       width: size.width - 10,
       margin: EdgeInsets.symmetric(horizontal: 5),
       child: Stack(
@@ -18,33 +18,33 @@ class SpotLightWidget extends StatelessWidget {
         // fit: StackFit.expand,
         children: [
           Positioned(
-            top: 60,
+            top: 90,
             child: Material(
               elevation: 0,
               type: MaterialType.transparency,
               child: Image(
                 width: size.width / 1,
                 height: size.height / 2,
-                image: AssetImage(
+                image: const AssetImage(
                   "assets/images/3.png",
                 ),
               ),
             ),
           ),
           Positioned(
-            top: 65,
+            top: 105,
             child: Material(
               type: MaterialType.transparency,
               child: Image(
                 width: size.width / 1.6,
                 height: size.height / 2.3,
-                image: AssetImage(
+                image: const AssetImage(
                   "assets/images/2.png",
                 ),
               ),
             ),
           ),
-          Positioned(
+          const Positioned(
             top: 0,
             child: Image(
               image: AssetImage(
