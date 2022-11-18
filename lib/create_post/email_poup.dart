@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -13,6 +15,7 @@ class EmailPopup extends StatefulWidget {
 class _MyWidgetState extends State<EmailPopup> {
   @override
   Widget build(BuildContext context) {
+    log("email_popup");
     final size = MediaQuery.of(context).size;
 
     return Scaffold(

@@ -65,24 +65,7 @@ class _HomeScreenState extends State<HomeScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              // SizedBox(
-              //   height: 150,
-              //   child:
-              //       Image.network("${loggedInUser.image}", fit: BoxFit.contain),
-              // ),
-              // ListView(
-              //   children: [
-              //     Container(
-              //       margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-              //       decoration: BoxDecoration(
-              //           borderRadius: BorderRadius.circular(8),
-              //           border: Border.all(width: 0.5, color: Colors.grey)),
-              //       child: ListTile(
-              //         title: Text(profile.em),
-              //       ),
-              //     ),
-              //   ],
-              // ),
+              CircleAvatar(),
               Text(
                 userProvider.userModel.email.toString(),
                 style:
@@ -91,6 +74,7 @@ class _HomeScreenState extends State<HomeScreen> {
               const SizedBox(
                 height: 10,
               ),
+
               Text(
                 userProvider.userModel.firstName.toString(),
                 style: const TextStyle(
@@ -99,22 +83,15 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
 
-              // Text("${loggedInUser.email}",
-              //     style: TextStyle(
-              //       color: Colors.black54,
-              //       fontWeight: FontWeight.w500,
-              //     )),
-              // SizedBox(
-              //   height: 15,
-              // ),
               Consumer<ProfileProvider>(builder: (context, value, child) {
-                return Text(userProvider.userModel.secondName.toString());
+                return Text(userProvider.userModel.lastName.toString());
               }),
               ActionChip(
-                  label: const Text("Logout"),
-                  onPressed: () {
-                    logout(context);
-                  }),
+                label: const Text("Logout"),
+                onPressed: () {
+                  logout(context);
+                },
+              ),
               // _buildData(movies: profile)
             ],
           ),
@@ -123,6 +100,7 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
+  chooseImage() {}
   // the logout function
   Future<void> logout(BuildContext context) async {
     await FirebaseAuth.instance.signOut();

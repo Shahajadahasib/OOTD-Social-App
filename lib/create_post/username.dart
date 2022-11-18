@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:ootd/create_post/user_with_email.dart';
@@ -14,6 +16,7 @@ class LogUsername extends StatefulWidget {
 class _LogUsernameState extends State<LogUsername> {
   @override
   Widget build(BuildContext context) {
+    log("username");
     final size = MediaQuery.of(context).size;
     return Scaffold(
       body: Container(

@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -11,6 +13,7 @@ class ProfilePic extends StatefulWidget {
 class _ProfilePicState extends State<ProfilePic> {
   @override
   Widget build(BuildContext context) {
+    log("profilepic");
     final size = MediaQuery.of(context).size;
 
     return Scaffold(

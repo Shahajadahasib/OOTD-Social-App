@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_gauges/gauges.dart';
 
@@ -11,6 +13,7 @@ class ClickSpotlight extends StatefulWidget {
 class _ClickSpotlightState extends State<ClickSpotlight> {
   @override
   Widget build(BuildContext context) {
+    log("click_spotlight");
     final size = MediaQuery.of(context).size;
     return Scaffold(
       body: SafeArea(

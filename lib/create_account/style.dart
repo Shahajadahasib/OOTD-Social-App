@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -12,6 +14,7 @@ class StylePage extends StatefulWidget {
 class _StylePageState extends State<StylePage> {
   @override
   Widget build(BuildContext context) {
+    log("style");
     final size = MediaQuery.of(context).size;
 
     return Scaffold(

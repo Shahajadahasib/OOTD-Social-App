@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:ootd/create_post/varification.dart';
@@ -14,6 +16,7 @@ bool isChecked = false;
 class _MyWidgetState extends State<UserPassword> {
   @override
   Widget build(BuildContext context) {
+    log("user_password");
     final size = MediaQuery.of(context).size;
     return Scaffold(
       body: Container(

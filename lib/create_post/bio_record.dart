@@ -14,6 +14,7 @@ class BioRecord extends StatefulWidget {
 class _BioRecordState extends State<BioRecord> {
   @override
   Widget build(BuildContext context) {
+    log("bio_record");
     final size = MediaQuery.of(context).size;
 
     return Scaffold(

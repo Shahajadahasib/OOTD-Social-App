@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:ootd/create_post/user_password.dart';
@@ -12,6 +14,7 @@ class SignIn extends StatefulWidget {
 class _SignUpState extends State<SignIn> {
   @override
   Widget build(BuildContext context) {
+    log("user_with_email");
     final size = MediaQuery.of(context).size;
     return Scaffold(
       body: Container(

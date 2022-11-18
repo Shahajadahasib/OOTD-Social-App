@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -11,6 +13,7 @@ class ChooseVideo extends StatefulWidget {
 class _MyWidgetState extends State<ChooseVideo> {
   @override
   Widget build(BuildContext context) {
+    log("choose_video");
     final size = MediaQuery.of(context).size;
 
     return Scaffold(

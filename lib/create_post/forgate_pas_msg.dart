@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -13,6 +15,7 @@ class Message extends StatefulWidget {
 class _MyWidgetState extends State<Message> {
   @override
   Widget build(BuildContext context) {
+    log("forgate_password_msg");
     final size = MediaQuery.of(context).size;
 
     return Scaffold(
