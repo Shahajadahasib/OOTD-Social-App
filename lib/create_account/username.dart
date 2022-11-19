@@ -6,6 +6,7 @@ import 'package:ootd/create_account/password.dart';
 import 'package:provider/provider.dart';
 
 import '../model/user_model.dart';
+import '../providers/profile_provider.dart';
 
 class CreateAcUsername extends StatefulWidget {
   const CreateAcUsername({super.key});
@@ -64,8 +65,9 @@ class _SignUpState extends State<CreateAcUsername> {
                                       height: size.height / 3,
                                     ),
                                     TextFormField(
-                                      controller:
-                                          model.firstNameEditingController,
+                                      controller: context
+                                          .read<ProfileProvider>()
+                                          .firstNameEditingController,
                                       textAlign: TextAlign.center,
                                       decoration: const InputDecoration(
                                         focusedBorder: UnderlineInputBorder(
@@ -88,8 +90,9 @@ class _SignUpState extends State<CreateAcUsername> {
                                       height: size.height / 20,
                                     ),
                                     TextFormField(
-                                      controller:
-                                          model.lastNameEditingController,
+                                      controller: context
+                                          .read<ProfileProvider>()
+                                          .lastNameEditingController,
                                       textAlign: TextAlign.center,
                                       decoration: const InputDecoration(
                                         focusedBorder: UnderlineInputBorder(

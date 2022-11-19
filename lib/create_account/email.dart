@@ -6,6 +6,7 @@ import 'package:ootd/create_account/username.dart';
 import 'package:provider/provider.dart';
 
 import '../model/user_model.dart';
+import '../providers/profile_provider.dart';
 
 class CreateAcEmail extends StatefulWidget {
   const CreateAcEmail({super.key});
@@ -87,8 +88,9 @@ class _HomePageState extends State<CreateAcEmail> {
                                         height: size.height / 8,
                                       ),
                                       TextFormField(
-                                        controller:
-                                            model.emailEditingController,
+                                        controller: context
+                                            .read<ProfileProvider>()
+                                            .emailController,
                                         textAlign: TextAlign.center,
                                         decoration: const InputDecoration(
                                           focusedBorder: UnderlineInputBorder(
@@ -112,8 +114,6 @@ class _HomePageState extends State<CreateAcEmail> {
                                       ),
                                       InkWell(
                                         onTap: () {
-                                          log(model
-                                              .emailEditingController.text);
                                           Navigator.push(
                                             context,
                                             MaterialPageRoute(

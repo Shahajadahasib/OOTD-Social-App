@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:ootd/create_account/style.dart';
 import 'package:ootd/model/user_model.dart';
+import 'package:ootd/providers/profile_provider.dart';
 import 'package:provider/provider.dart';
 
 class CreateAcPassWord extends StatefulWidget {
@@ -63,8 +64,9 @@ class _PassWordState extends State<CreateAcPassWord> {
                                       height: size.height / 3.5,
                                     ),
                                     TextField(
-                                      controller:
-                                          model.passwordEditingController,
+                                      controller: context
+                                          .read<ProfileProvider>()
+                                          .passwordcontroller,
                                       textAlign: TextAlign.center,
                                       decoration: const InputDecoration(
                                         focusedBorder: UnderlineInputBorder(
@@ -83,8 +85,9 @@ class _PassWordState extends State<CreateAcPassWord> {
                                       height: size.height / 25,
                                     ),
                                     TextFormField(
-                                      controller:
-                                          model.repasswordEditingController,
+                                      controller: context
+                                          .read<ProfileProvider>()
+                                          .repasswordEditingController,
                                       textAlign: TextAlign.center,
                                       decoration: const InputDecoration(
                                         focusedBorder: UnderlineInputBorder(
@@ -103,12 +106,16 @@ class _PassWordState extends State<CreateAcPassWord> {
                                       height: size.height / 18,
                                     ),
                                     InkWell(
-                                      onTap: () {
+                                      onTap: () async {
                                         model.signUp(
-                                          email:
-                                              model.emailEditingController.text,
-                                          password: model
-                                              .passwordEditingController.text,
+                                          email: context
+                                              .read<ProfileProvider>()
+                                              .emailController
+                                              .text,
+                                          password: context
+                                              .read<ProfileProvider>()
+                                              .emailController
+                                              .text,
                                           context: context,
                                         );
                                         print(model.emailEditingController
