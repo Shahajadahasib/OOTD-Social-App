@@ -16,6 +16,8 @@ class CreateAcEmail extends StatefulWidget {
 }
 
 class _HomePageState extends State<CreateAcEmail> {
+  final emailController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     log("email");
@@ -88,9 +90,7 @@ class _HomePageState extends State<CreateAcEmail> {
                                         height: size.height / 8,
                                       ),
                                       TextFormField(
-                                        controller: context
-                                            .read<ProfileProvider>()
-                                            .emailController,
+                                        controller: emailController,
                                         textAlign: TextAlign.center,
                                         decoration: const InputDecoration(
                                           focusedBorder: UnderlineInputBorder(
@@ -104,9 +104,10 @@ class _HomePageState extends State<CreateAcEmail> {
                                             color: Color(0xff6A6767),
                                           ),
                                         ),
-                                        onSaved: (value) {
-                                          model.emailEditingController.text =
-                                              value!;
+                                        onChanged: (value) {
+                                          context
+                                              .read<ProfileProvider>()
+                                              .email = value;
                                         },
                                       ),
                                       SizedBox(

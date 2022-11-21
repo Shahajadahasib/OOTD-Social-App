@@ -17,6 +17,8 @@ class CreateAcPassWord extends StatefulWidget {
 bool isChecked = false;
 
 class _PassWordState extends State<CreateAcPassWord> {
+  final paswordController = TextEditingController();
+  final repasswordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     log("password");
@@ -63,10 +65,13 @@ class _PassWordState extends State<CreateAcPassWord> {
                                     SizedBox(
                                       height: size.height / 3.5,
                                     ),
-                                    TextField(
-                                      controller: context
-                                          .read<ProfileProvider>()
-                                          .passwordcontroller,
+                                    TextFormField(
+                                      onChanged: (newValue) {
+                                        context
+                                            .read<ProfileProvider>()
+                                            .password = newValue;
+                                      },
+                                      controller: paswordController,
                                       textAlign: TextAlign.center,
                                       decoration: const InputDecoration(
                                         focusedBorder: UnderlineInputBorder(
@@ -85,9 +90,12 @@ class _PassWordState extends State<CreateAcPassWord> {
                                       height: size.height / 25,
                                     ),
                                     TextFormField(
-                                      controller: context
-                                          .read<ProfileProvider>()
-                                          .repasswordEditingController,
+                                      onChanged: (newValue) {
+                                        context
+                                            .read<ProfileProvider>()
+                                            .repassword = newValue;
+                                      },
+                                      controller: repasswordController,
                                       textAlign: TextAlign.center,
                                       decoration: const InputDecoration(
                                         focusedBorder: UnderlineInputBorder(
@@ -110,18 +118,16 @@ class _PassWordState extends State<CreateAcPassWord> {
                                         model.signUp(
                                           email: context
                                               .read<ProfileProvider>()
-                                              .emailController
-                                              .text,
+                                              .email,
                                           password: context
                                               .read<ProfileProvider>()
-                                              .emailController
-                                              .text,
+                                              .password,
                                           context: context,
                                         );
-                                        print(model.emailEditingController
-                                            .toString());
-                                        print(model.passwordEditingController
-                                            .toString());
+                                        // print(model.emailEditingController
+                                        //     .toString());
+                                        // print(model.passwordEditingController
+                                        //     .toString());
                                         Navigator.push(
                                           context,
                                           MaterialPageRoute(

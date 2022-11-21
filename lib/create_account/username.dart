@@ -18,6 +18,8 @@ class CreateAcUsername extends StatefulWidget {
 bool isChecked = false;
 
 class _SignUpState extends State<CreateAcUsername> {
+  final firstnameController = TextEditingController();
+  final lastnameController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     log("username");
@@ -65,9 +67,7 @@ class _SignUpState extends State<CreateAcUsername> {
                                       height: size.height / 3,
                                     ),
                                     TextFormField(
-                                      controller: context
-                                          .read<ProfileProvider>()
-                                          .firstNameEditingController,
+                                      controller: firstnameController,
                                       textAlign: TextAlign.center,
                                       decoration: const InputDecoration(
                                         focusedBorder: UnderlineInputBorder(
@@ -81,18 +81,17 @@ class _SignUpState extends State<CreateAcUsername> {
                                           color: Color(0xff6A6767),
                                         ),
                                       ),
-                                      onSaved: (value) {
-                                        model.firstNameEditingController.text =
-                                            value!;
+                                      onChanged: (value) {
+                                        context
+                                            .read<ProfileProvider>()
+                                            .firstName = value;
                                       },
                                     ),
                                     SizedBox(
                                       height: size.height / 20,
                                     ),
                                     TextFormField(
-                                      controller: context
-                                          .read<ProfileProvider>()
-                                          .lastNameEditingController,
+                                      controller: lastnameController,
                                       textAlign: TextAlign.center,
                                       decoration: const InputDecoration(
                                         focusedBorder: UnderlineInputBorder(
@@ -106,9 +105,10 @@ class _SignUpState extends State<CreateAcUsername> {
                                           color: Color(0xff6A6767),
                                         ),
                                       ),
-                                      onSaved: (value) {
-                                        model.lastNameEditingController.text =
-                                            value!;
+                                      onChanged: (value) {
+                                        context
+                                            .read<ProfileProvider>()
+                                            .lastName = value;
                                       },
                                     ),
                                     SizedBox(

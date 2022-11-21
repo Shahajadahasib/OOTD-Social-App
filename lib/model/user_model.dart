@@ -1,10 +1,14 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'dart:developer';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:provider/provider.dart';
 
+import '../providers/profile_provider.dart';
 import '../screen/home_screen.dart';
 
 class UserModel extends ChangeNotifier {
@@ -17,12 +21,6 @@ class UserModel extends ChangeNotifier {
   String? errorMessage;
 
   UserModel({this.uid, this.email, this.firstName, this.lastName, this.image});
-
-  TextEditingController firstNameEditingController = TextEditingController();
-  TextEditingController lastNameEditingController = TextEditingController();
-  TextEditingController emailEditingController = TextEditingController();
-  TextEditingController passwordEditingController = TextEditingController();
-  TextEditingController repasswordEditingController = TextEditingController();
   final registerformKey = GlobalKey<FormState>();
   final _auth = FirebaseAuth.instance;
   FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
@@ -67,14 +65,17 @@ class UserModel extends ChangeNotifier {
         );
 
         UserModel user = UserModel(
-          firstName: firstNameEditingController.text,
+          firstName: context.read<ProfileProvider>().firstName,
           uid: _auth.currentUser!.uid,
-          lastName: lastNameEditingController.text,
-          email: emailEditingController.text,
+          lastName: context.read<ProfileProvider>().lastName,
+          email: email,
           image: '',
         );
 
-        firebaseFirestore.collection("users").doc(_auth.currentUser!.uid).set(
+        await firebaseFirestore
+            .collection("users")
+            .doc(_auth.currentUser!.uid)
+            .set(
               user.toMap(),
             );
 

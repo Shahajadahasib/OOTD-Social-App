@@ -9,43 +9,45 @@ import 'package:ootd/model/user_model.dart';
 class ProfileProvider with ChangeNotifier {
   List<UserModel> user = [];
   UserModel userModel = UserModel();
-  TextEditingController _firstNameEditingController = TextEditingController();
-  TextEditingController _lastNameEditingController = TextEditingController();
-  TextEditingController _emainlcontroller = TextEditingController();
-  TextEditingController _passwordcontroller = TextEditingController();
-  TextEditingController _repasswordEditingController = TextEditingController();
+  String _firstName = '';
+  String _lastName = '';
+  String _email = '';
+  String _password = '';
+  String _repassword = '';
 
-  TextEditingController get firstNameEditingController =>
-      _firstNameEditingController;
-  TextEditingController get lastNameEditingController =>
-      _lastNameEditingController;
-  TextEditingController get emailController => _emainlcontroller;
-  TextEditingController get passwordcontroller => _passwordcontroller;
-  TextEditingController get repasswordEditingController =>
-      _repasswordEditingController;
+  String get firstName => _firstName;
+  String get lastName => _lastName;
+  String get email => _email;
+  String get password => _password;
+  String get repassword => _repassword;
 
-  set firstNameEditingController(TextEditingController value) {
-    _firstNameEditingController = value;
+  set firstName(String value) {
+    _firstName = value;
+    log(_firstName);
     notifyListeners();
   }
 
-  set lastNameEditingController(TextEditingController value) {
-    _lastNameEditingController = value;
+  set lastName(String value) {
+    _lastName = value;
+    log(_lastName);
     notifyListeners();
   }
 
-  set emailController(TextEditingController value) {
-    _emainlcontroller = value;
+  set email(String value) {
+    _email = value;
+    log(_email);
     notifyListeners();
   }
 
-  set passwordcontroller(TextEditingController value) {
-    _passwordcontroller = value;
+  set password(String value) {
+    _password = value;
+    log(_password);
     notifyListeners();
   }
 
-  set repasswordEditingController(TextEditingController value) {
-    _repasswordEditingController = value;
+  set repassword(String value) {
+    _repassword = value;
+    log(_repassword);
     notifyListeners();
   }
 
