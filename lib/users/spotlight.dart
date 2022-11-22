@@ -1,8 +1,10 @@
+import 'dart:io';
 import 'dart:ui';
 
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:ootd/widgets/searchbox.dart';
 import 'package:syncfusion_flutter_gauges/gauges.dart';
 import '../widgets/spotlightwidget.dart';
@@ -15,6 +17,51 @@ class SpotLight extends StatefulWidget {
 }
 
 class _SpotLightState extends State<SpotLight> {
+  File? _image;
+  Future selectfile() async {
+    final pickedFile = await ImagePicker().pickImage(
+      source: ImageSource.gallery,
+      imageQuality: 50,
+    );
+    setState(() {
+      if (pickedFile != null) {
+        _image = File(pickedFile.path);
+      } else {
+        // log('No image Selected');
+      }
+    });
+
+    //   // Upload file
+    // final ref = firebasestorage
+    //     .ref('profileimages')
+    //     .child(firebaseauth.currentUser!.uid);
+    // UploadTask uploadTask = ref.putFile(_image!.absolute);
+
+    // await Future.value(uploadTask);
+    // var imageurl = await ref.getDownloadURL();
+
+    // final followersdata = await firestore
+    //     .collection('users')
+    //     .doc(firebaseauth.currentUser!.uid)
+    //     .get();
+
+    // UserModel user = UserModel(
+    //   firstname: followersdata.get('firstname'),
+    //   lastname: followersdata.get('lastname'),
+    //   email: followersdata.get('email'),
+    //   phone: followersdata.get('phone'),
+    //   uid: followersdata.get('uid'),
+    //   profilePhoto: imageurl,
+    //   followers: followersdata.get('followers'),
+    //   following: followersdata.get('following'),
+    //   recordings: followersdata.get('recordings'),
+    // );
+    // await firestore
+    //     .collection('users')
+    //     .doc(firebaseauth.currentUser!.uid)
+    //     .set(user.toJson());
+  }
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -50,64 +97,89 @@ class _SpotLightState extends State<SpotLight> {
               SizedBox(
                 height: size.height / 15,
               ),
-              Container(
-                margin: const EdgeInsets.all(10),
-                height: size.height * .7,
-                width: size.width,
-                decoration: BoxDecoration(
-                  color: Colors.red,
-                  image: const DecorationImage(
-                    fit: BoxFit.cover,
-                    image: NetworkImage(
-                        "https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8aHVtYW58ZW58MHx8MHx8&w=1000&q=80"),
+              GestureDetector(
+                onTap: () {
+                  selectfile();
+                },
+                child: Container(
+                  margin: const EdgeInsets.all(10),
+                  // height: size.height * .7,
+                  // width: size.width,
+                  decoration: BoxDecoration(
+                    color: Colors.red,
+
+                    // image: const DecorationImage(
+                    //   fit: BoxFit.cover,
+                    //   image: NetworkImage(""),
+
+                    // ),
+
+                    borderRadius: BorderRadius.circular(20),
+                    // image: DecorationImage(
+                    //   image: Image.file(_image!.absolute)
+                    // )
                   ),
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: Stack(
-                  children: [
-                    Positioned(
-                      top: size.height / 4,
-                      left: 5,
-                      child: Container(
-                        height: size.height * .06,
-                        width: size.width * .4,
-                        decoration: BoxDecoration(
-                          image: const DecorationImage(
-                              fit: BoxFit.cover,
-                              image: NetworkImage(
-                                  "https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8aHVtYW58ZW58MHx8MHx8&w=1000&q=80")),
-                          borderRadius: BorderRadius.circular(20),
-                          // color: Color.fromARGB(255, 198, 155, 152),
-                          border: Border.all(
-                            color: Colors.white,
-                            width: 4,
+                  child: Stack(
+                    // fit: StackFit.loose,
+                    children: [
+                      _image != null
+                          ? Expanded(
+                              child: Image.file(
+                                _image!.absolute,
+                                height: size.height * .7,
+                                width: size.width,
+                                fit: BoxFit.contain,
+                              ),
+                            )
+                          : Expanded(
+                              child: SizedBox(
+                              height: size.height * .7,
+                              width: size.width,
+                            )),
+                      Positioned(
+                        top: size.height / 4,
+                        left: 5,
+                        child: Container(
+                          height: size.height * .06,
+                          width: size.width * .4,
+                          decoration: BoxDecoration(
+                            image: const DecorationImage(
+                                fit: BoxFit.cover,
+                                image: NetworkImage(
+                                    "https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8aHVtYW58ZW58MHx8MHx8&w=1000&q=80")),
+                            borderRadius: BorderRadius.circular(20),
+                            // color: Color.fromARGB(255, 198, 155, 152),
+                            border: Border.all(
+                              color: Colors.white,
+                              width: 4,
+                            ),
                           ),
+                          child: Container(),
                         ),
-                        child: Container(),
                       ),
-                    ),
-                    Positioned(
-                      top: size.height / 2,
-                      right: 30,
-                      child: Container(
-                        height: size.height * .1,
-                        width: size.width * .2,
-                        decoration: BoxDecoration(
-                          image: const DecorationImage(
-                              fit: BoxFit.cover,
-                              image: NetworkImage(
-                                  "https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8aHVtYW58ZW58MHx8MHx8&w=1000&q=80")),
-                          borderRadius: BorderRadius.circular(20),
-                          // color: Color.fromARGB(255, 198, 155, 152),
-                          border: Border.all(
-                            color: Colors.white,
-                            width: 4,
+                      Positioned(
+                        top: size.height / 2,
+                        right: 30,
+                        child: Container(
+                          height: size.height * .1,
+                          width: size.width * .2,
+                          decoration: BoxDecoration(
+                            image: const DecorationImage(
+                                fit: BoxFit.cover,
+                                image: NetworkImage(
+                                    "https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8aHVtYW58ZW58MHx8MHx8&w=1000&q=80")),
+                            borderRadius: BorderRadius.circular(20),
+                            // color: Color.fromARGB(255, 198, 155, 152),
+                            border: Border.all(
+                              color: Colors.white,
+                              width: 4,
+                            ),
                           ),
+                          child: Container(),
                         ),
-                        child: Container(),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
               Container(

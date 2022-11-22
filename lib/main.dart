@@ -4,8 +4,11 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 
 import 'package:flutter/material.dart';
+import 'package:ootd/create_post/profilepic.dart';
 import 'package:ootd/providers/profile_provider.dart';
 import 'package:ootd/screen/login_screen.dart';
+import 'package:ootd/users/spotlight.dart';
+import 'package:ootd/users/user_profile.dart';
 import 'package:provider/provider.dart';
 
 import 'create_account/email.dart';
@@ -62,7 +65,7 @@ class _MyAppState extends State<MyApp> {
             // CreateAcEmail(),
 
             _auth.isEmpty
-                ? const CreateAcEmail()
+                ? const SpotLight()
                 : HomeScreen(
                     uid: _auth,
                   ),
